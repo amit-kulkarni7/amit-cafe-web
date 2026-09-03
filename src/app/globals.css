@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #fdf9f6;
+  --color-surface: #fdf9f6;
+  --color-surface-container-low: #f7f3f0;
+  --color-surface-container-highest: #e5e2df;
+  --color-surface-variant: #e5e2df;
+  --color-primary: #26170c;
+  --color-primary-container: #3d2b1f;
+  --color-on-primary: #ffffff;
+  --color-secondary: #6b5c4c;
+  --color-secondary-container: #f4dfcb;
+  --color-outline-variant: #d2c4bc;
+  --color-on-surface: #1c1b1a;
+  --color-on-surface-variant: #4f453f;
+
+  --font-headline: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+
+  --spacing-container-max: 1280px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --spacing-stack-md: 40px;
+  --spacing-stack-lg: 80px;
+  --spacing-gutter: 24px;
+
+  --radius-xl: 0.5rem;
+}
+
+/* Global Reset & Base Styles */
+:root {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Desktop Floating Reviews Drift Animations */
+@keyframes review-drift-1 {
+  0% {
+    translate: 0px 0px;
+  }
+  100% {
+    translate: 8px -16px;
+  }
+}
+
+@keyframes review-drift-2 {
+  0% {
+    translate: 0px 0px;
+  }
+  100% {
+    translate: -9px 15px;
+  }
+}
+
+@keyframes review-drift-3 {
+  0% {
+    translate: 0px 0px;
+  }
+  100% {
+    translate: -7px -16px;
+  }
+}
+
+@keyframes review-drift-4 {
+  0% {
+    translate: 0px 0px;
+  }
+  100% {
+    translate: 8px 17px;
+  }
+}
+
+.review-drift-1 {
+  animation: review-drift-1 5.8s ease-in-out infinite alternate;
+  will-change: translate;
+}
+
+.review-drift-2 {
+  animation: review-drift-2 7s ease-in-out 1.4s infinite alternate;
+  will-change: translate;
+}
+
+.review-drift-3 {
+  animation: review-drift-3 6.4s ease-in-out 2.6s infinite alternate;
+  will-change: translate;
+}
+
+.review-drift-4 {
+  animation: review-drift-4 7.4s ease-in-out 0.7s infinite alternate;
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-drift-1,
+  .review-drift-2,
+  .review-drift-3,
+  .review-drift-4 {
+    animation: none !important;
+    translate: 0 0 !important;
+    will-change: auto !important;
+  }
+}
